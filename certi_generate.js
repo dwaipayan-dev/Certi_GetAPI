@@ -18,6 +18,6 @@ addText().then((image)=>{
         console.log("Function successfully returns");
         res.contentType('image/png');
         res.send(data);
-    });abc
+    });
     
 });
