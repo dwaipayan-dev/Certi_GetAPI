@@ -1,17 +1,12 @@
 const mongoose = require('mongoose');
 //User schema prototype
 const userSchema = new mongoose.Schema({
-    certi_id:{
-        type: String
-    },
-    name:{
-        type: String
-    },
-    /*
+    certi_id: String,
+    holder_name: String,
     img:{
-        type: Buffer
+        data: Buffer,
+        contentType: String
     }
-    */
 });
 
 //User object
