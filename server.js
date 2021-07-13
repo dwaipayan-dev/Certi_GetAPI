@@ -72,7 +72,8 @@ app.post('/generate-certi', (req, res) =>{
                 console.error("No such User found");
                 res.status(404).send("Error: No such record found");
             }
-            res.status(200).contentType(user.img.contentType).send(user.img.data);
+            else
+                res.status(200).contentType(user.img.contentType).send(user.img.data);
         });
     }
 })
@@ -92,13 +93,17 @@ app.get('/get-certi', (req, res)=>{
         var fetchObj = User.findOne({
             certi_id: uid,
         });
-        fetchObj.exec((err, user)=>{
-            if(user === null || err){
+        fetchObj.exec().then((user)=>{
+            if(user === null){
                 console.error("No such record found");
                 res.status(404).send("Error: No such record found");
             }
-            res.status(200).contentType(user.img.contentType).send(user.img.data);
+            else
+                res.status(200).contentType(user.img.contentType).send(user.img.data);
+        }).catch((err)=>{
+            console.log("err handled");
         });
+        
     }
 })
 
