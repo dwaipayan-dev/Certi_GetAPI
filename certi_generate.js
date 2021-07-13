@@ -4,6 +4,7 @@ one certificate will be generated, other requests will have to wait.
 */
 //Loading Jimp: An image processing node library
 const Jimp = require('jimp');
+const { Mongoose } = require('mongoose');
 //Getting Connection Variable
 const connectDb = require('./src/connection');
 //Getting User object model
@@ -67,6 +68,7 @@ addText().then((image)=>{
         //Saving user object to MongoDB and exiting the process
         user.save().then(()=>{
             console.log("User created");
+            //mongo connection closes on process.exit()
             process.exit();
         }).catch((err)=>{
             console.log("User could not be created because of ", err.message.toString());
