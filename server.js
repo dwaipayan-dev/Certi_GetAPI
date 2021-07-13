@@ -13,7 +13,7 @@ app.use(function (req, res, next) {
 //extensions to parse json encoded and urlencoded req body
 //Note To self: Always remember to put all the use() as soon as we define the app variable. Doesn't work otherwise
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({extended: false}));
 
 //specify port on which the application will listen to
 const PORT = 8080;
@@ -113,7 +113,7 @@ app.listen(PORT, function(){
     
     //Connecting to MongoDB
     connectDb().then(()=>{
-        console.log("MongoDB connected");
+        console.log("MongoDB connected again..");
     }).catch((err)=>{
         console.error("ERROR:", err.message.toString());
     });
@@ -123,7 +123,7 @@ app.listen(PORT, function(){
 function validateFields(field){
     const JoiUserSchema = Joi.object({
         username: Joi.string().min(2).max(20).optional(),
-        userid: Joi.string().min(12).max(12).optional()
+        userid: Joi.string().min(10).max(12).optional()
     }).options({abortEarly: false});
 
     return JoiUserSchema.validate(field);
