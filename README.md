@@ -56,6 +56,14 @@
  $ curl -XPOST -d '{"name": "[your-name]"}' -H "Content-Type: application/json" 'http://localhost:3000/generate-certi'
  ```
  
+ Here is what the generated certificate looks like:
+ 
+ ---------------------------------------------------------------------------------------------------------------
+ ![image](https://user-images.githubusercontent.com/51186857/125657871-deb62794-9cb8-478e-9c79-f213632d3c04.png)
+ 
+ ---------------------------------------------------------------------------------------------------------------
+
+ 
  # Route 3: Get Certificate using certificate id
  
  This is a GET request used to fetch the E-certificate using the Certificate Id.Suppose, You have the certificate id of a previously generated certificate and you want to view the file in browser and download it. You can use the following example to fetch your E-Certificate.
