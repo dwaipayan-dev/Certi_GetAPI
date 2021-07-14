@@ -51,7 +51,7 @@ app.post('/generate-certi', (req, res) =>{
     }
     else{
         //Creating unique id
-        var uid = Math.random().toString(28).substring(2);
+        var uid = Math.random().toString(36).substring(2, 9);
 
         //Using execSync() for synchronous multiprocessing. execSync() blocks the event loop until the process returns so at one time only one
         //certificate generates
@@ -113,7 +113,7 @@ app.listen(PORT, function(){
     
     //Connecting to MongoDB
     connectDb().then(()=>{
-        console.log("MongoDB connected again..");
+        console.log("MongoDB connected. You can now start sending requests.");
     }).catch((err)=>{
         console.error("ERROR:", err.message.toString());
     });
@@ -123,7 +123,7 @@ app.listen(PORT, function(){
 function validateFields(field){
     const JoiUserSchema = Joi.object({
         username: Joi.string().min(2).max(20).optional(),
-        userid: Joi.string().min(10).max(12).optional()
+        userid: Joi.string().min(7).max(7).optional()
     }).options({abortEarly: false});
 
     return JoiUserSchema.validate(field);
