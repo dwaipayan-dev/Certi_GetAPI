@@ -66,7 +66,7 @@
  
  # Route 3: Get Certificate using certificate id
  
- This is a GET request used to fetch the E-certificate using the Certificate Id.Suppose, You have the certificate id of a previously generated certificate and you want to view the file in browser and download it. You can use the following example to fetch your E-Certificate.
+ This is a GET request used to fetch the E-certificate using the Certificate Id.Suppose, You have the certificate id of a previously generated certificate and you want to view the file in browser and download it. You can use the following example in Git Bash to fetch your E-Certificate.
  
  ```
  $ curl GET 'http://localhost:3000/get-certi?certi_id=[7 character long certi id]'
